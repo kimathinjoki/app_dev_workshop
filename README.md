@@ -1,12 +1,12 @@
 <div align="center">
 
-# 🚀 Setting up React on Windows and macOS
+<h1>🚀 Setting up React on Windows and macOS</h1>
 
 <div id="header">
   <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDB5YzljczBpcWV1Z2kxc3cxdXBveDg2dmc2Y2Q1Ym5pMXc3dHo5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KEYMsj2LcXzfcTP5ii/giphy.webp" width="100" style="margin: 10px;"/>
 </div>
 
-This guide will help you set up your environment for React development on Windows and macOS.
+<p><strong>This guide will help you set up your environment for React development on Windows and macOS.</strong></p>
 
 </div>
 
