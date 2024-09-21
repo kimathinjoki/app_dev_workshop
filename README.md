@@ -58,13 +58,16 @@ This guide will help you set up your environment for React development on Window
    ```
    npm start
    ```
+6. Open `src/App.js` to begin editing your app.
+
+7. Install additional npm packages as needed
 
 # Create React App Project Structure
 
 After running `create-react-app`, your project structure will look like this:
 
 ```
-my-react-app/
+new-app/
   README.md
   node_modules/
   package.json
@@ -113,21 +116,5 @@ my-react-app/
 
 #### `App.test.js`
 - Test file for the App component.
-
-## Getting Started
-
-1. Navigate to your project directory:
-   ```
-   cd my-react-app
-   ```
-
-2. Start the development server:
-   ```
-   npm start
-   ```
-
-3. Open `src/App.js` to begin editing your app.
-
-4. Install additional npm packages as needed
 
 Happy coding!
