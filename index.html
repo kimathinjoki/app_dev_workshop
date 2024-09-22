@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITCC App Dev Workshop Setup Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        #header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #header img {
+            border-radius: 50%;
+        }
+        .center {
+            text-align: center;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 20px 0;
+        }
+        details {
+            background-color: #e7f2fa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .code-block {
+            position: relative;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .copy-btn:hover {
+            background-color: #45a049;
+        }
+        .emoji {
+            font-size: 1.2em;
+        }
+        .contact {
+            margin-top: 20px;
+        }
+        .contact img {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <h1>🚀 Setting up for ITCC App Dev Workshop on Windows and MacOS</h1>
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDB5YzljczBpcWV1Z2kxc3cxdXBveDg2dmc2Y2Q1Ym5pMXc3dHo5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KEYMsj2LcXzfcTP5ii/giphy.webp" width="100" alt="Setup Illustration" />
+        </div>
+
+        <p class="center"><strong>This guide will help you set up your environment for React development on Windows and macOS as preparation for the workshop.</strong></p>
+
+        <hr>
+
+        <h2>📋 Prerequisites</h2>
+        <ul>
+            <li>Working laptop</li>
+            <li>Windows 10+ or macOS 10.13+</li>
+            <li>Internet connection</li>
+            <li>Basic command line knowledge</li>
+        </ul>
+
+        <hr>
+
+        <h2>🛠️ Setup Steps</h2>
+
+        <h3>1. Install Node.js and npm</h3>
+
+        <details>
+            <summary>Windows Instructions</summary>
+            <h4>Accessing the Command Prompt</h4>
+            <ol>
+                <li>Press <code>Win + R</code> to open the Run dialog.</li>
+                <li>Type <code>cmd</code> and press <code>Enter</code> to open the Command Prompt.</li>
+            </ol>
+
+            <h4>Accessing PowerShell</h4>
+            <ol>
+                <li>Press <code>Win + X</code> to open the Power User menu.</li>
+                <li>Select <code>Windows PowerShell</code> or <code>Windows PowerShell (Admin)</code>.</li>
+                <li>If prompted, click <code>Yes</code> to allow the PowerShell to make changes to your device.</li>
+            </ol>
+
+            <h4>Installation Steps</h4>
+            <ol>
+                <li>Visit <a href="https://nodejs.org/">https://nodejs.org/</a></li>
+                <li>Download and install the LTS version.</li>
+            </ol>
+
+            <h4>Alternative: Using PowerShell or Command Prompt</h4>
+            <ol>
+                <li>Open PowerShell or Command Prompt.</li>
+                <li>Check the current execution policy:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>Get-ExecutionPolicy</code></pre>
+                    </div>
+                    If the output is <code>Restricted</code>, then set the execution policy to <code>AllSigned</code>:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>Set-ExecutionPolicy AllSigned</code></pre>
+                    </div>
+                    You will be prompted to confirm the change. Type <code>A</code> and press <code>Enter</code> to confirm.
+                </li>
+                <li>Install Chocolatey (a package manager for Windows):
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</code></pre>
+                    </div>
+                </li>
+                <li>Use Chocolatey to install Node.js:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>choco install -y --force nodejs-lts</code></pre>
+                    </div>
+                </li>
+            </ol>
+
+            <h4>Verify installation:</h4>
+            <div class="code-block">
+                <button class="copy-btn">Copy</button>
+                <pre><code>node --version
+npm --version</code></pre>
+            </div>
+        </details>
+
+        <details>
+            <summary>macOS Instructions</summary>
+            <h4>Accessing the Terminal</h4>
+            <ol>
+                <li>Open Finder.</li>
+                <li>Navigate to the <code>Applications</code> folder.</li>
+                <li>Open the <code>Utilities</code> folder.</li>
+                <li>Double-click on <code>Terminal</code> to open it.</li>
+            </ol>
+
+            <h4>Installation Steps</h4>
+            <ol>
+                <li>Install Homebrew:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+                    </div>
+                </li>
+                <li>Install Node.js:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>brew install node</code></pre>
+                    </div>
+                </li>
+                <li>Verify installation:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>node --version
+npm --version</code></pre>
+                    </div>
+                </li>
+            </ol>
+        </details>
+
+        <h3>2. Install a Code Editor</h3>
+        <ol>
+            <li>Go to <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+            <li>Download and install for your OS</li>
+            <li>Open VS Code after installation</li>
+        </ol>
+
+        <div class="center contact">
+            <p>📫 Have any questions? Please reach out:</p>
+            <a href="mailto:kfnchx@umsl.edu">
+                <img src="https://cdn-icons-png.flaticon.com/512/552/552486.png" width="28" height="28" alt="Email Icon" />
+            </a>
+        </div>
+
+        <div class="center">
+            <h2>🎉 Happy coding! 🎉</h2>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const code = btn.nextElementSibling.textContent;
+                navigator.clipboard.writeText(code).then(() => {
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        btn.textContent = 'Copy';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
