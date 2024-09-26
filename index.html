@@ -20,7 +20,7 @@
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        h1, h2 {
+        h1, h2, h3 {
             color: #2c3e50;
         }
         #header {
@@ -84,6 +84,88 @@
         .contact img {
             vertical-align: middle;
             margin-left: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .resource-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .download-btn {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .download-btn:hover {
+            background-color: #34495e;
+        }
+
+         details {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 15px;
+            position: relative;
+            outline: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '\25BC';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        summary:hover {
+            background-color: #f0f0f0;
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #ddd;
+        }
+
+        details > div {
+            padding: 15px;
+        }
+
+        summary h3 {
+            display: inline-block;
+            margin: 0;
         }
     </style>
 </head>
@@ -166,7 +248,8 @@
             <div class="code-block">
                 <button class="copy-btn">Copy</button>
                 <pre><code>node --version
-npm --version</code></pre>
+                            npm --version
+                </code></pre>
             </div>
         </details>
 
@@ -198,7 +281,8 @@ npm --version</code></pre>
                     <div class="code-block">
                         <button class="copy-btn">Copy</button>
                         <pre><code>node --version
-npm --version</code></pre>
+                                    npm --version
+                        </code></pre>
                     </div>
                 </li>
             </ol>
@@ -211,32 +295,140 @@ npm --version</code></pre>
             <li>Open VS Code after installation</li>
         </ol>
 
-        <div class="center contact">
-            <p>📫 Have any questions? Please reach out:</p>
-            <a href="mailto:kfnchx@umsl.edu">
-                <img src="https://cdn-icons-png.flaticon.com/512/552/552486.png" width="28" height="28" alt="Email Icon" />
-            </a>
-        </div>
+        <details>
+            <summary><h3>3. Create a New React Application</h3></summary>
+            <ol>
+                <li>Open Command Prompt/Terminal</li>
+                <li>Navigate to your project directory</li>
+                <li>Create a new React app:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>npx create-react-app new-app</code></pre>
+                    </div>
+                </li>
+                <li>Move into the project folder:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>cd new-app</code></pre>
+                    </div>
+                </li>
+                <li>Start the development server:
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>npm start</code></pre>
+                    </div>
+                </li>
+                <li>Open <code>src/App.js</code> to begin editing your app.</li>
+                <li>Install additional npm packages as needed</li>
+            </ol>
+        </details>
 
+        <details>
+            <summary><h3>4. Install and Configure Tailwind CSS</h3></summary>
+            <ol>
+                <li>
+                    <strong>Create your project</strong>
+                    <p>Start by creating a new React project with <strong>Create React App v5.0+</strong> if you don't have one already set up.</p>
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>npx create-react-app my-project
+cd my-project</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <strong>Install Tailwind CSS</strong>
+                    <p>Install <code>tailwindcss</code> via npm, and then run the init command to generate your <code>tailwind.config.js</code> file.</p>
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>npm install -D tailwindcss
+npx tailwindcss init</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <strong>Configure your template paths</strong>
+                    <p>Add the paths to all of your template files in your <code>tailwind.config.js</code> file.</p>
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}</code></pre>
+                    </div>
+                </li>
+                <li>
+                    <strong>Add the Tailwind directives to your CSS</strong>
+                    <p>Add the <code>@tailwind</code> directives for each of Tailwind's layers to your <code>./src/index.css</code> file.</p>
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>@tailwind base;
+@tailwind components;
+@tailwind utilities;</code></pre>
+                    </div>
+                </li>
+            </ol>
+        </details>
+
+        <hr>
+
+        <h2>📚 Resources</h2>
+        <div class="resource-section">
+            <button id="downloadLogoBtn" class="download-btn">Download ITCC Logo</button>
+            <button id="downloadNavbarBtn" class="download-btn">Download Navbar Template</button>
+        </div>
+        
         <div class="center">
             <h2>🎉 Happy coding! 🎉</h2>
         </div>
-    </div>
-
-    <script>
-        document.querySelectorAll('.copy-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const code = btn.nextElementSibling.textContent;
-                navigator.clipboard.writeText(code).then(() => {
-                    btn.textContent = 'Copied!';
-                    setTimeout(() => {
-                        btn.textContent = 'Copy';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Failed to copy text: ', err);
+        
+        <script>
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const code = btn.nextElementSibling.textContent;
+                    navigator.clipboard.writeText(code).then(() => {
+                        btn.textContent = 'Copied!';
+                        setTimeout(() => {
+                            btn.textContent = 'Copy';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                    });
                 });
             });
-        });
-    </script>
+        
+            function downloadFile(url, filename) {
+                fetch(url)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const blobUrl = window.URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = blobUrl;
+                        link.download = filename;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        window.URL.revokeObjectURL(blobUrl);
+                    })
+                    .catch(error => {
+                        console.error('Error downloading the file:', error);
+                        alert('There was an error downloading the file. Please try again.');
+                    });
+            }
+    
+            // Event listener for ITCC Logo download
+            document.getElementById('downloadLogoBtn').addEventListener('click', function() {
+                downloadFile('ITCC.png', 'ITCC.png');
+            });
+    
+            // Event listener for Navbar Template download
+            document.getElementById('downloadNavbarBtn').addEventListener('click', function() {
+                downloadFile('navbar.txt', 'navbar.txt');
+            });
+        </script>
 </body>
 </html>
