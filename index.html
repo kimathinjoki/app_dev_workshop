@@ -167,6 +167,23 @@
             display: inline-block;
             margin: 0;
         }
+
+        .os-select {
+            margin-bottom: 15px;
+        }
+
+        .os-select select {
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .os-instructions {
+            display: none;
+        }
+
+        .os-instructions.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -372,6 +389,65 @@ module.exports = {
                     </div>
                 </li>
             </ol>
+        </details>
+
+        <details>
+            <summary><h3>5. Configuring Git</h3></summary>
+            <div>
+                <p>We'll be using Git for our version control system, so we're going to set it up to match our Github account. If you don't already have a Github account, make sure to <a href="https://github.com/" target="_blank"></a><strong>register</strong></a>. It will come in handy for the future.</p>
+                
+                <div class="os-select">
+                    <label for="os-dropdown">Select your operating system:</label>
+                    <select id="os-dropdown">
+                        <option value="mac">Mac</option>
+                        <option value="windows">Windows</option>
+                        <option value="linux">Linux</option>
+                    </select>
+                </div>
+
+                <div id="mac-instructions" class="os-instructions active">
+                    <h4>Configuring Git</h4>
+                    <p>Replace the name and email address in the following steps with the ones you used for your Github account.</p>
+
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                    <pre><code>git config --global color.ui true
+                    git config --global user.name "YOUR NAME"
+                    git config --global user.email "YOUR@EMAIL.com"
+                    ssh-keygen -t ed25519 -C "YOUR@EMAIL.com"</code></pre>
+                    </div>
+
+                    <p>The next step is to take the newly generated SSH key and add it to your Github account. You want to copy and paste the output of the following command and <strong>paste it <a href="https://github.com/settings/ssh/new" target="_blank">here</a></strong>.</p>
+
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+                    </div>
+
+                    <p>Once you've done this, you can check and see if it worked:</p>
+
+                    <div class="code-block">
+                        <button class="copy-btn">Copy</button>
+                        <pre><code>ssh -T git@github.com</code></pre>
+                    </div>
+
+                    <p>You should get a message like this:</p>
+
+                    <div class="code-block">
+                        <pre><code>Hi excid3! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+                    </div>
+                </div>
+
+                <div id="windows-instructions" class="os-instructions">
+                    <h4>Configuring Git on Windows</h4>
+                    <p>Instructions for Windows will be similar, but you may need to use Git Bash or WSL. Please refer to the official Git documentation for Windows-specific instructions.</p>
+                </div>
+
+                <div id="linux-instructions" class="os-instructions">
+                    <h4>Configuring Git on Linux</h4>
+                    <p>Instructions for Linux will be very similar to Mac. You can follow the Mac instructions, but you may need to use your distribution's package manager to install Git if it's not already installed.</p>
+                </div>
+            </div>
         </details>
 
         <hr>
