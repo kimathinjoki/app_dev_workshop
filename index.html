@@ -184,6 +184,22 @@
         .os-instructions.active {
             display: block;
         }
+
+        .vercel-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .vercel-link:hover {
+            background-color: #333;
+        }
+
     </style>
 </head>
 <body>
@@ -447,6 +463,16 @@ module.exports = {
                     <h4>Configuring Git on Linux</h4>
                     <p>Instructions for Linux will be very similar to Mac. You can follow the Mac instructions, but you may need to use your distribution's package manager to install Git if it's not already installed.</p>
                 </div>
+            </div>
+        </details>
+
+        <details>
+            <summary><h3>6. Get Started with Vercel</h3></summary>
+            <div>
+                
+                <p>To begin your journey with Vercel, click the button below to log in or create an account:</p>
+                
+                <a href="https://vercel.com/login" target="_blank" class="vercel-link">Go to Vercel Login</a>
             </div>
         </details>
 
